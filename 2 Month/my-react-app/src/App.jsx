@@ -8,7 +8,7 @@ function App() {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
         <div className="container">
-          <a className="navbar-brand" href="#">Harish Palsande</a>
+          <a className="navbar-brand" href="#">Akshada Patil</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -28,7 +28,7 @@ function App() {
 
       <section id="home" className="hero-section">
         <div className="container">
-          <h1>Hi, I'm Harish Palsande</h1>
+          <h1>Hi, I'm Akshada Patil</h1>
           <p>MERN Stack Developer with 2 Years of Experience</p>
           <a href="#contact" className="btn btn-primary btn-lg">Hire Me</a>
         </div>
@@ -172,7 +172,7 @@ function App() {
               <form className="contact-form">
                 <div className="mb-3">
                   <label for="name" className="form-label">Name</label>
-                  <input type="text" className="form-control" id="name" placeholder="Harish Palsande"/>
+                  <input type="text" className="form-control" id="name" placeholder="Akshada Patil"/>
                 </div>
                 <div className="mb-3">
                   <label for="email" className="form-label">Email</label>
@@ -197,7 +197,7 @@ function App() {
 
       <footer>
         <div className="container">
-          <p>© 2025 Harish Palsande. All Rights Reserved.</p>
+          <p>© 2025 Akshada Patil. All Rights Reserved.</p>
           <p>
             <a href="https://github.com/yourusername"><i className="fab fa-github"></i></a>
             <a href="https://linkedin.com/in/yourusername"><i className="fab fa-linkedin"></i></a>
