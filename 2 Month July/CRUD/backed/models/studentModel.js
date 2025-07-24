@@ -1,5 +1,5 @@
-
 const mongoose = require("mongoose");
+
 
 // Define schema for Student
 const studentSchema = new mongoose.Schema({

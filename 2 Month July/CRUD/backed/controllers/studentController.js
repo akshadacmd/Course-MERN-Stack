@@ -1,14 +1,11 @@
 const Student = require("../models/studentModel");
 
-
-const CreateStudent = async(req,res) => {
-     try {
-  
-
+const createStudent = async (req, res) => {
+  try {
+    
     const { firstName, lastName, std, rollNo, address } = req.body;
 
-    
-  const studentData = new Student({
+    const studentData = new Student({
       firstName,
       lastName,
       std,
@@ -16,23 +13,26 @@ const CreateStudent = async(req,res) => {
       address,
     });
 
-    await studentData.save(); 
+    await studentData.save();
 
     res.status(201).json(studentData);
-  } catch (err) {
-    res.status(400).json({ error: err.message }); 
-}
-};
 
+  } catch (e) {
 
-const getAllStudent = async (req,res) => {
-     try {
-    const students = await Student.find(); 
-
-    res.json(students); 
-  } catch (err) {
-    res.status(500).json({ error: err.message }); 
+    res.status(500).json({ error: e.message });
+    
   }
 };
 
-module.exports = {CreateStudent,getAllStudent};
+const getAllStudent = async (req, res) => {
+  try {
+    const students = await Student.find();
+
+    res.json(students);
+
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+module.exports = { createStudent, getAllStudent };

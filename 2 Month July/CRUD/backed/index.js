@@ -1,10 +1,12 @@
 // Import required modules
 const express = require("express");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const connectMongoDB = require("./config/db");
-const Student = require("./models/studentModel");
-const { CreateStudent, getAllStudent } = require("./controllers/studentController");
+const cors = require("cors")
+const connectMongoDb = require("./config/db");
+const {
+  createStudent,
+  getAllStudent,
+} = require("./controllers/studentController");
 
 // Create an Express application
 const app = express();
@@ -14,17 +16,18 @@ const PORT = 5000;
 
 // Middleware to parse JSON data from requests
 app.use(bodyParser.json());
+app.use(cors())
 
-// connect mongoDB
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`); // Log server running message
+});
 
-connectMongoDB()
-
-
-
+// Connect to MongoDB database
+connectMongoDb();
 
 // CREATE - Add a new student (POST /students)
-app.post("/students",CreateStudent);
- 
+app.post("/students", createStudent);
 
 // READ ALL - Get all students (GET /students)
-app.get("/students",getAllStudent);
+app.get("/students", getAllStudent);
