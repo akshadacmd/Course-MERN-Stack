@@ -7,10 +7,15 @@ const userSchema = new mongoose.Schema({
     email : String,
     mobileNo : Number,
     password : String,
+    
+    resetOtp : String,
+    resetOtpExpiration : Date,
+
+    otpSentCount : Number
 })
 
 
 const User = mongoose.model("User" , userSchema)
 
 
-module.exports = User;
+module.exports = User

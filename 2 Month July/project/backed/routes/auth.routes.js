@@ -4,15 +4,17 @@ const {
   loginUser,
   registerUser,
   forgotPassword,
-  birthdayAdd,
+  verifyOpt,  
+  
   resetPassword,
   changePassword,
 } = require("../controllers/auth/auth.controller");
 
 router.post('/login', loginUser);
 router.post('/register', registerUser);
-router.post('/birthday-add', birthdayAdd);
+
 router.post('/forgot-password', forgotPassword);
+router.post('/verify-otp', verifyOpt); 
 router.post('/reset-password', resetPassword);
 router.post('/change-password', changePassword);
 
