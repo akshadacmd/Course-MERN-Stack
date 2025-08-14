@@ -117,11 +117,12 @@ const resetPassword = async (req, res) => {
     let decode;
     try {
       decode = jwt.verify(token, process.env.JWT_SECRET);
+      console.log("Decoded token:", decode);
     } catch (error) {
       return res.status(401).json({ message: "Invalid or expired token" });
     }
 
-    const userData = await User.findById(decode._id);
+   const userData = await User.findById(decode.id);
     if (!userData) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -139,7 +140,6 @@ const resetPassword = async (req, res) => {
     res.status(500).json({ message: "Server error during password reset" });
   }
 };
-
 
 const changePassword = async (req, res) => {
   try {
