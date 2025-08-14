@@ -66,10 +66,9 @@ const getMyPost = async (req, res) => {
 
 const updateMyPost = async (req, res) => {
   try {
-    const userId = req.user.userId;
-    const { description,location} = req.body;
+    const { postId, description, location } = req.body;
     const updateMyPost = await Post.findByIdAndUpdate(
-      userId,
+      postId,
       {
         description,
          location
@@ -88,15 +87,22 @@ const updateMyPost = async (req, res) => {
   }
 };
 
-const deleteMyPost = async() =>{
+const deleteMyPost = async (req, res) => {
   try {
-     const userId = req.user.userId;
-     const deleteMyPost = await Post.findByIdAndDelete(userId)
-  } catch (error) {
-      res.status(200).json({ messgae : "Post deleted sucessfully"})
-  }
-}
+    const { postId } = req.body;
 
+    const deletedPost = await Post.findByIdAndDelete(postId);
+
+    if (!deletedPost) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    res.status(200).json({ message: "Post deleted successfully" });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
 
 module.exports = {
   createPost,

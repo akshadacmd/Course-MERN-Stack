@@ -2,7 +2,7 @@ const User = require("../../models/user/user.model");
 
 const getUserProfile = async (req, res) => {
   try {
-    console.log(req.user.userId, "User-Id");
+    console.log(req.user.userId, "userId");
 
     const userData = await User.findById(req.user.userId);
 
